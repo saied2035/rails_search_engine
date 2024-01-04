@@ -1,0 +1,5 @@
+<%=form_with(url: search_index_path,  method: :post, class: "flex flex-col gap-3 w-48 h-60 mt-7 mx-auto") do |f| %> 
+   <%= f.text_field :text, class: 'p-1 focus:placeholder-white rounded-2xl',
+   placeholder: 'search books' %>
+   <%= f.submit :search, class: 'w-[50%] bg-blue-500 text-white mx-auto p-1 rounded-2xl cursor-pointer' %>
+<%end%>
