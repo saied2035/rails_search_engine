@@ -1,0 +1,6 @@
+<%if books.nil? == false %>
+<h2>Results:</h2>
+<% books.each do |book| %>
+  <%=render 'book', book: book %>
+<%end%>
+<%end%>

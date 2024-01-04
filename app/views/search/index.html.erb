@@ -1,2 +1,7 @@
 <%=render 'search'%>
-<%=render 'results'%>
+<section id='books' class='m-2'>
+<%=render 'results', books: @books %>
+</section>
+<section id='recomendations' class='m-2 mt-5'>
+<%=render 'recomendations', recomendations: @recomendations %>
+</section>

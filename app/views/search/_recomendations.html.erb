@@ -1,0 +1,7 @@
+<%if recomendations.nil? == false %>
+<hr class="w-[80%] mx-auto h-1 bg-black"/>
+<h2>Recomendations:</h2>
+<% recomendations.each do |recomendation| %>
+  <%=render 'recomendation', recomendation: recomendation %>
+<%end%>
+<%end%>

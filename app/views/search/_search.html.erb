@@ -1,5 +1,5 @@
-<%=form_with(url: search_index_path,  method: :post, class: "flex flex-col gap-3 w-48 h-60 mt-7 mx-auto",
-data: { controller: "search", action: "input->search#searchProcess" }) do |f| %> 
+<%=form_with(url: search_index_path,  method: :post, class: "flex flex-col gap-3 w-48 h-fit mb-3 mt-7 mx-auto",
+data: { controller: "search", action: "keyup->search#searchProcess", request_url: search_url }) do |f| %> 
    <%= f.text_field :text, class: 'p-1 focus:placeholder-white rounded-2xl',
    placeholder: 'search books', data: { search_target: 'input' } %>
 <%end%>
