@@ -1,5 +1,10 @@
 class SearchController < ApplicationController
   def index 
+    @recomendations = current_user.recomendation.nil? ? [] :
+    Book.where(
+      "#{current_user.recomendation_type}": 
+      current_user.recomendation_type.classify.constantize.find_by(name: current_user.recomendation)
+    )
   end
 
   def search
@@ -60,9 +65,16 @@ class SearchController < ApplicationController
 
     publisher_books = Book.where(publisher: publisher).
     where.not(id: publishers["#{publisher.name}"][:ids])
-    publisher_books.each {|book| puts book}
+
     max_arr = [author_books.length, genre_books.length, publisher_books.length]
     max_index = max_arr.index(max_arr.max)
+    if max_index == 0
+      current_user.update_columns(recomendation: author.name, recomendation_type: 'author')
+    elsif max_index == 1
+      current_user.update_columns(recomendation: genre.name, recomendation_type: 'genre')
+    else
+      current_user.update_columns(recomendation: publisher.name, recomendation_type: 'publisher')   
+    end  
     return max_index == 0 ? author_books : max_arr == 1 ? genre_books : publisher_books
   end  
 end
