@@ -17,7 +17,7 @@
 - [📝 License](#license)
 
 
-# 📖 Flightfull <a name="about-project"></a>
+# 📖 Rails search engine <a name="about-project"></a>
 
 **Rails search engine** is instant search engine through fake books data which gets data debending on user's input and trys to recommend books to the users regarding to their search.    
 
@@ -36,7 +36,7 @@
 <details>
 <summary>Database</summary>
   <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a> (development)</li>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
   </ul>
 </details>
 
@@ -47,9 +47,10 @@ To get a local copy up and running, follow these steps.
 ### Prerequisites
 
 In order to run this project you need:
-  - Package manager like npm
+  - Rails 7
+  - Ruby 3.1.2 
   - VS code editor or equivlant
-  - docker(for elasticsearch gem) 
+  - Docker(for elasticsearch gem) 
 ### Setup
 
 Setup elasticksearch with Docker:
@@ -58,6 +59,7 @@ Setup elasticksearch with Docker:
 docker run -d -p 127.0.0.1:9200:9200 -p 127.0.0.1:9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:8.11.3
 ```
 We need to change some values in elasticsearch.yml file:
+
 for Ubuntu/Mac/WSL, in your terminal:
 ```sh
 sudo nano /usr/share/elasticsearch/config/elasticsearch.yml
@@ -71,7 +73,8 @@ Click on the container name (In the image above it's "lucid_jepsen")
 
 ![Alt text](2.JPG)
 
-Click on the files tab.under files tab you can find elasticsearch.yml in `/usr/share/elasticsearch/config/elasticsearch.yml`
+Click on the Files tab. under Files tab you can find elasticsearch.yml in this path: 
+`/usr/share/elasticsearch/config/elasticsearch.yml`
 
 ![Alt text](3.JPG)
 
@@ -120,7 +123,7 @@ To run the project, execute the following command:
   rails db:create db:migrate db:seed
 ```
 
-*hint: if the search is not working fllow the next steps in your terminal in the directory of the project*
+*hint: if the search is not working follow the next steps in your terminal in the directory of the project*
 
 ```sh
 rails c
